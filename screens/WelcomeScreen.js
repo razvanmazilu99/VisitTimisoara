@@ -22,11 +22,11 @@ export default function WelcomeScreen({ navigation }){
                 <Text style={{textAlign: 'center', fontSize: 28, top: 0}}>Log in</Text>
           </TouchableOpacity>
     
-          <TouchableOpacity onPress={console.log("Mau")} style={ [styles.buttonContainer, {top: 265, backgroundColor: 'white'}]}>
+          <TouchableOpacity onPress={() => navigation.navigate('Signup')} style={ [styles.buttonContainer, {top: 265, backgroundColor: 'white'}]}>
                 <Text style={{textAlign: 'center', fontSize: 28, top: 0}}>Create account</Text>
           </TouchableOpacity>
     
-          <StatusBar style="auto" />
+          <StatusBar style="auto" barStyle="light-content" />
         </View>
         
       );
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: 414,
         height: 179,
-        left: -14,      
+        //left: -14,      
         top: 60,
     
         color: 'white',
