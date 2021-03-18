@@ -32,11 +32,11 @@ export default class App extends React.Component {
       />
 
       <TouchableOpacity onPress={console.log("Bau")} style={styles.buttonContainer}>
-            <Text style={{textAlign: 'center', fontFamily: 'Roboto', fontSize: 28, top: 0}}>Log in</Text>
+            <Text style={{textAlign: 'center', fontSize: 28, top: 0}}>Log in</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={console.log("Mau")} style={ [styles.buttonContainer, {top: 265, backgroundColor: 'white'}]}>
-            <Text style={{textAlign: 'center', fontFamily: 'Roboto', fontSize: 28, top: 0}}>Create account</Text>
+            <Text style={{textAlign: 'center', fontSize: 28, top: 0}}>Create account</Text>
       </TouchableOpacity>
 
       <StatusBar style="auto" />
