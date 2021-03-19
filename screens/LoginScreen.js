@@ -6,10 +6,14 @@ export default function LoginScreen({ navigation }){
         <View style={styles.container}>
             <Text style={styles.loginText}>Log in</Text>
 
-            <View>
+            <View style={{flex: 0.1, flexDirection: 'row'}}>
                 <TouchableOpacity style={styles.facebookButton}>
-                    <Text style={{fontSize: 36, fontWeight: "bold", color: 'white', left: 20}}>f</Text>
-                    <Text style={styles.facebookText}>Facebook</Text>
+                    <View style={{flex: 0.025}}>
+                        <Text style={{fontSize: 36, fontWeight: "bold", color: 'white', left: 20}}>f</Text>
+                    </View>
+                    <View style={{flex: 0.075}}>
+                        <Text style={styles.facebookText}>Facebook</Text>
+                    </View>
                 </TouchableOpacity>
             </View>
             
@@ -58,7 +62,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 18,
         left: 50,
-        top: -36
+        top: 10
     },
 
     textInput: {
