@@ -1,39 +1,70 @@
 import { Text, View, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import React from 'react';
+import * as firebase from 'firebase';
 
-export default function LoginScreen({ navigation }){
-    return(
-        <View style={styles.container}>
-            <Text style={styles.loginText}>Log in</Text>
+export default class LoginScreen extends React.Component{
+    
+    constructor(props){
+        super(props)
 
-            <View style={{flex: 0.1, flexDirection: 'row'}}>
-                <TouchableOpacity style={styles.facebookButton}>
-                    <View style={{flex: 0.025}}>
-                        <Text style={{fontSize: 36, fontWeight: "bold", color: 'white', left: 20}}>f</Text>
-                    </View>
-                    <View style={{flex: 0.075}}>
-                        <Text style={styles.facebookText}>Facebook</Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
+        this.state = ({
+            //username: '',
+            email: '',
+            password: ''
+        })
+    }
+
+    loginUser = (email, password) => {
+        try{
             
-            <Text style={{ color:'white', fontSize: 18, alignSelf: 'center', top: 110}}>or log in with email</Text>
+            firebase.auth().signInWithEmailAndPassword(email,password);/*.then(function (user){
+                console.log(user);
+                console.log(user.email)
+            })*/
+             
 
-            <TextInput placeholder="Email" style={styles.textInput}></TextInput>
-            <TextInput placeholder="Password" secureTextEntry={true} style={[styles.textInput, {top: 150}]}></TextInput>
+        }catch(error){
+            //console.log(error.toString())
+            //alert("Error:",error)
+           firebase.auth().onAuthStateChanged(user => {alert(user.email)});
+        }
+    }
 
-            <TouchableOpacity style={styles.loginButton}>
-                <Text style={{color: 'white', fontSize: 26, textAlign: 'center', top: 12}}>Log in</Text>
-            </TouchableOpacity>
+    render(){
+        return(
+            <View style={styles.container}>
+                <Text style={styles.loginText}>Log in</Text>
 
-            <Text style={{color: 'white', fontSize: 18, textAlign: 'center', top: 240}}>Don't have an account?</Text>
+                <View>
+                    <TouchableOpacity style={styles.facebookButton}>
+                        <View>
+                            <Text style={{fontSize: 36, fontWeight: "bold", color: 'white', left: 20}}>f</Text>
+                        </View>
+                        <View>
+                            <Text style={styles.facebookText}>Facebook</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            
+                <Text style={{ color:'white', fontSize: 18, alignSelf: 'center', top: 110}}>or log in with email</Text>
 
-            <TouchableOpacity onPress={() => navigation.navigate('Signup')} style={styles.signupButton}>
-                <Text style={{color: 'black', fontSize: 22, textAlign: 'center', top: 8}}>Sign up</Text>
-            </TouchableOpacity>
+                <TextInput onChangeText={(email) => this.setState({email})} placeholder="Email" style={styles.textInput}></TextInput>
+                <TextInput onChangeText={(password) => this.setState({password})} placeholder="Password" secureTextEntry={true} style={[styles.textInput, {top: 150}]}></TextInput>
 
-        </View>
-    );   
+                <TouchableOpacity onPress={() => this.loginUser(this.state.email, this.state.password)} style={styles.loginButton}>
+                    <Text style={{color: 'white', fontSize: 26, textAlign: 'center', top: 12}}>Log in</Text>
+                </TouchableOpacity>
+
+                <Text style={{color: 'white', fontSize: 18, textAlign: 'center', top: 240}}>Don't have an account?</Text>
+
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Signup')} style={styles.signupButton}>
+                    <Text style={{color: 'black', fontSize: 22, textAlign: 'center', top: 8}}>Sign up</Text>
+                </TouchableOpacity>
+
+            </View>
+        ); 
+    }
+      
 }
 
 const styles = StyleSheet.create({
@@ -62,7 +93,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 18,
         left: 50,
-        top: 10
+        top: -35
     },
 
     textInput: {
