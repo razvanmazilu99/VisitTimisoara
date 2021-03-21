@@ -1,32 +1,60 @@
 import React from 'react';
+import * as firebase from 'firebase';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 
-export default function SignupScreen({ navigation }){
-    return(
-        <View style={styles.container}>
-            <Text style={styles.registerText}>Create account</Text>
-            <TextInput placeholder="Username" style={styles.textInput}></TextInput>
-            <TextInput placeholder="Email" style={[styles.textInput, {top: 150}]}></TextInput>
-            <TextInput placeholder="Password" secureTextEntry={true} style={[styles.textInput, {top: 170}]}></TextInput>
+export default class SignupScreen extends React.Component{
+    
+    constructor(props){
+        super(props)
 
-            <TouchableOpacity style={styles.signupButton}>
-                <Text style={{color: 'white', fontSize: 26, textAlign: 'center', top: 12}}>Sign up</Text>
-            </TouchableOpacity>
+        this.state = ({
+            username: '',
+            email: '',
+            password: ''
+        })
+    }
 
-            <View style={{flex: 1, flexDirection: 'row'}}>
-                <View style={{flex: 0.75}}>
-                    <Text style={{ color:'white', fontSize: 18, alignSelf: 'center', left: 18, top: 300}}>Already have an account?</Text>
-                </View>
+    signUpUser = (email, password, username) => {
+       try{
+            if(this.state.password.length<6){
+                alert("Please enter at least 6 characters")
+                return;
+            }
+
+            firebase.auth().createUserWithEmailAndPassword(email,password).then(user => this.props.navigation.navigate('Login'));
+
+        }catch(error){
+            console.log(error.toString());
+        }
+    }
+    
+    render(){
+        return(
+            <View style={styles.container}>
+                <Text style={styles.registerText}>Create account</Text>
+                {/*<TextInput placeholder="Username" onChangeText={(username) => this.setState({username})} style={styles.textInput}></TextInput>*/}
+                <TextInput placeholder="Email" onChangeText={(email) => this.setState({email})} style={[styles.textInput, {top: 150}]}></TextInput>
+                <TextInput placeholder="Password" onChangeText={(password) => this.setState({password})} secureTextEntry={true} style={[styles.textInput, {top: 170}]}></TextInput>
+
+                <TouchableOpacity onPress={() => this.signUpUser(this.state.email, this.state.password)} style={styles.signupButton}>
+                    <Text style={{color: 'white', fontSize: 26, textAlign: 'center', top: 12}}>Sign up</Text>
+                </TouchableOpacity>
+
+                <View style={{flex: 1, flexDirection: 'row'}}>
+                    <View style={{flex: 0.75}}>
+                        <Text style={{ color:'white', fontSize: 18, alignSelf: 'center', left: 18, top: 300}}>Already have an account?</Text>
+                    </View>
                 
-                <View style={{flex: 0.25}}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.textLogIn}>
-                        <Text style={{ color:'white', fontSize: 18, alignSelf: 'center', left: -10, color: '#59B298'}}>Log in</Text>
-                    </TouchableOpacity>
+                    <View style={{flex: 0.25}}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')} style={styles.textLogIn}>
+                            <Text style={{ color:'white', fontSize: 18, alignSelf: 'center', left: -10, color: '#59B298'}}>Log in</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-            </View>
 
-        </View>
-    );
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
