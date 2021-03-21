@@ -8,22 +8,23 @@ export default class SignupScreen extends React.Component{
         super(props)
 
         this.state = ({
-            //username: '',
+            username: '',
             email: '',
             password: ''
         })
     }
-    signUpUser = (email, password) => {
-        try{
+
+    signUpUser = (email, password, username) => {
+       try{
             if(this.state.password.length<6){
                 alert("Please enter at least 6 characters")
                 return;
             }
 
-            firebase.auth().createUserWithEmailAndPassword(email,password)
+            firebase.auth().createUserWithEmailAndPassword(email,password).then(user => this.props.navigation.navigate('Login'));
 
         }catch(error){
-            console.log(error.toString())
+            console.log(error.toString());
         }
     }
     
@@ -31,7 +32,7 @@ export default class SignupScreen extends React.Component{
         return(
             <View style={styles.container}>
                 <Text style={styles.registerText}>Create account</Text>
-                <TextInput placeholder="Username" style={styles.textInput}></TextInput>
+                {/*<TextInput placeholder="Username" onChangeText={(username) => this.setState({username})} style={styles.textInput}></TextInput>*/}
                 <TextInput placeholder="Email" onChangeText={(email) => this.setState({email})} style={[styles.textInput, {top: 150}]}></TextInput>
                 <TextInput placeholder="Password" onChangeText={(password) => this.setState({password})} secureTextEntry={true} style={[styles.textInput, {top: 170}]}></TextInput>
 
