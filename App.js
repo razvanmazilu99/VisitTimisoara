@@ -8,7 +8,7 @@ import WelcomeScreen from './screens/WelcomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
 import MainScreen from './screens/MainScreen';
-import NavBar from './screens/NavBar';
+//import NavBar from './screens/NavBar';
 import MapScreen from './screens/MapScreen';
 
 
@@ -32,7 +32,7 @@ export default class App extends React.Component{
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Signup" component={SignupScreen} />
           <Stack.Screen name="Main" component={MainScreen} />
-          <Stack.Screen name="Nav" component={NavBar} />
+          {/*<Stack.Screen name="Nav" component={NavBar} />*/}
           <Stack.Screen name="Map" component={MapScreen} />
           
         </Stack.Navigator>
