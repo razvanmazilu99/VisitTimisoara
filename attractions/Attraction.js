@@ -1,4 +1,5 @@
 export default class Attraction {
+    id;
     name;
     description;
     image;
@@ -7,7 +8,8 @@ export default class Attraction {
     zone;
     rating;
 
-    constructor(name, description, image, location, type, zone, rating){
+    constructor(id, name, description, image, location, type, zone, rating){
+        this.is = id;
         this.name = name;
         this.description = description;
         this.image = image;

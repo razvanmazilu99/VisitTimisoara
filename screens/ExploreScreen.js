@@ -37,12 +37,15 @@ export default class ExploreScreen extends React.Component{
     
     render(){
           return(
-            <ScrollView>
-                
-                <AttractionList/>
+            <View style={{backgroundColor: '#1A1B29'}}>
+                <View style={{top: 17, height: 80}}>
+                    <Image style = {{ height: 50, width: 50}} source = {require("../assets/map.png")}/>
+                </View>
+                <ScrollView >
+                    <AttractionList/>
+                </ScrollView>
+            </View>
             
-              
-            </ScrollView>
             );
     };
 }  
