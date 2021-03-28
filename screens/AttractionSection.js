@@ -5,8 +5,8 @@ export default class AttractionSection extends React.Component{
     render(){
         return(
             <View style={styles.container}>
-                <Image style={{ height: 250, width: 375, marginTop: 20, borderRadius: 20}} source={this.props.detail.image} />
-                <View style={{position: 'absolute', borderRadius: 15, backgroundColor: '#088761', left: 0, bottom: -30}}>
+                <Image style={{ height: 250, width: 375, marginTop: 20, borderRadius: 20 }} source={this.props.detail.image} />
+                <View style={{ position: 'absolute', borderRadius: 15, backgroundColor: '#088761', left: -10, bottom: -30 }}>
                     <Text style={{ color: "white", padding: 5, fontSize: 30}}>{this.props.detail.name}</Text>
                 </View>
                 

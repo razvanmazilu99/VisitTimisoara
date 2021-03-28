@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, TextInput, TouchableOpacity, StatusBar } from "react-native";
 import React from 'react';
 import * as firebase from 'firebase';
 
@@ -49,6 +49,7 @@ export default class LoginScreen extends React.Component{
     render(){
         return(
             <View style={styles.container}>
+                <StatusBar style="auto" barStyle="light-content" />
                 <Text style={styles.loginText}>Log in</Text>
 
                 <View>

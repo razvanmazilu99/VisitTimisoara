@@ -5,8 +5,10 @@ import { StyleSheet, Text, Image, View, Button, TouchableOpacity } from 'react-n
 export default function WelcomeScreen({ navigation }){
     return (
         <View style={styles.container}>
+          <StatusBar style="auto" barStyle='light-content'/>
           <Text style = {styles.textStyle}>
-            Welcome to Timișoara!</Text>
+            Welcome to Timișoara!
+          </Text>
           <Image 
             style = {{  position: 'absolute',
                         width: 465,
@@ -25,8 +27,6 @@ export default function WelcomeScreen({ navigation }){
           <TouchableOpacity onPress={() => navigation.navigate('Signup')} style={ [styles.buttonContainer, {top: 265, backgroundColor: 'white'}]}>
                 <Text style={{textAlign: 'center', fontSize: 28, top: 0}}>Create account</Text>
           </TouchableOpacity>
-    
-          <StatusBar style="auto" barStyle="light-content" />
         </View>
         
       );

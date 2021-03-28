@@ -38,8 +38,9 @@ export default class ExploreScreen extends React.Component{
     render(){
           return(
             <View style={{backgroundColor: '#1A1B29'}}>
-                <View style={{top: 17, height: 80}}>
-                    <Image style = {{ height: 50, width: 50}} source = {require("../assets/map.png")}/>
+                <View style={{flexDirection: 'row',  top: 17, height: 80}}>
+                    <Image style = {{ height: 30, width: 30, margin: 10, marginTop: 20 }} source = {require("../assets/user1.png")}/>
+                    <Text style={{ color: 'white', fontSize: 30, top: 10, margin: 7, fontWeight: 'bold' }}>Explore</Text>
                 </View>
                 <ScrollView >
                     <AttractionList/>
