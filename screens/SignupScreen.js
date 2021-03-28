@@ -1,6 +1,6 @@
 import React from 'react';
 import * as firebase from 'firebase';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, StatusBar } from 'react-native';
 
 export default class SignupScreen extends React.Component{
     
@@ -31,6 +31,7 @@ export default class SignupScreen extends React.Component{
     render(){
         return(
             <View style={styles.container}>
+                <StatusBar style="auto" barStyle="light-content" />
                 <Text style={styles.registerText}>Create account</Text>
                 {/*<TextInput placeholder="Username" onChangeText={(username) => this.setState({username})} style={styles.textInput}></TextInput>*/}
                 <TextInput placeholder="Email" onChangeText={(email) => this.setState({email})} style={[styles.textInput, {top: 150}]}></TextInput>
