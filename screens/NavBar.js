@@ -8,6 +8,7 @@ import ExploreScreen from './ExploreScreen';
 import MapScreen from './MapScreen';
 import SignupScreen from './SignupScreen';
 import HistoryScreen from './HistoryScreen';
+import TourScreen from './TourScreen';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
@@ -92,8 +93,8 @@ export default class NavBar extends React.Component{
                         }} 
                     />
                     <Tab.Screen 
-                        name='WelcomeScreen' 
-                        component={WelcomeScreen}
+                        name='TourScreen' 
+                        component={TourScreen}
                         options={{
                             tabBarLabel: 'Tour',
                             tabBarIcon: ({focused, color}) => (

@@ -10,7 +10,8 @@ import SignupScreen from './screens/SignupScreen';
 import MainScreen from './screens/MainScreen';
 //import NavBar from './screens/NavBar';
 import MapScreen from './screens/MapScreen';
-
+import TourScreen from './screens/TourScreen';
+import GuidedToursScreen from './screens/GuidedToursScreen';
 
 const Stack = createStackNavigator();
 export default class App extends React.Component{
@@ -34,6 +35,8 @@ export default class App extends React.Component{
           <Stack.Screen name="Main" component={MainScreen} />
           {/*<Stack.Screen name="Nav" component={NavBar} />*/}
           <Stack.Screen name="Map" component={MapScreen} />
+          <Stack.Screen name="Tour" component={TourScreen} />
+          <Stack.Screen name="GuidedTours" component={GuidedToursScreen} />
           
         </Stack.Navigator>
       </NavigationContainer>
