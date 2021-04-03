@@ -1,11 +1,10 @@
 import React from 'react';
-import { Linking, Text, View, StatusBar, Image, StyleSheet } from 'react-native';
-import { TouchableHighlight } from 'react-native-gesture-handler';
+import { Linking, Text, View, StatusBar, Image, StyleSheet, SafeAreaView } from 'react-native';
 
 export default class HistoryScreen extends React.Component{
     render(){
         return(
-            
+
             <View style={{flex: 1, backgroundColor: '#1A1B29'}}>
                 <StatusBar style="auto" barStyle="light-content" />
 
@@ -24,12 +23,12 @@ export default class HistoryScreen extends React.Component{
                     </View>
                     <View style={{flex: 0.65}}>
                         <View style={{ alignSelf: 'center', flex: 0.55}} >
-                            <View style={{flex: 0.10}}>
+                            <View style={{flex: 0.35}}>
                                 <Text onPress={() => Linking.openURL('http://www.timisoaracitytours.com/the_specials/timisoara-classic-tour/')}
                                       style = {{ top: 45, color: 'white', textDecorationLine: 'underline', fontStyle: 'italic', fontSize: 28, fontWeight: 'bold' }}
                                 >Classic tour</Text>
                             </View>
-                            <View style={{flex: 0.45}}>
+                            <View style={{flex: 0.25}}>
                                 <Text style = {{ top: 70, color: '#219653', fontSize: 20, fontWeight: 'bold' }}
                                 >2.5 hours</Text>
                             </View>
@@ -43,12 +42,12 @@ export default class HistoryScreen extends React.Component{
                     </View>
                     <View style={{flex: 0.65}}>
                         <View style={{ alignSelf: 'center', flex: 0.55}} >
-                            <View style={{flex: 0.10}}>
+                            <View style={{flex: 0.35}}>
                                 <Text onPress={() => Linking.openURL('http://www.timisoaracitytours.com/the_specials/jewish-heritage-tour-timisoara/')}
                                       style = {{ top: 45, color: 'white', textDecorationLine: 'underline', fontStyle: 'italic', fontSize: 28, fontWeight: 'bold' }}
                                 >Jewish tour</Text>
                             </View>
-                            <View style={{flex: 0.45}}>
+                            <View style={{flex: 0.25}}>
                                 <Text style = {{ top: 70, color: '#219653', fontSize: 20, fontWeight: 'bold' }}
                                 >3 hours</Text>
                             </View>
@@ -62,13 +61,13 @@ export default class HistoryScreen extends React.Component{
                     </View>
                     <View style={{flex: 0.65}}>
                         <View style={{ alignSelf: 'center', flex: 0.55}} >
-                            <View style={{flex: 0.10}}>
+                            <View style={{flex: 0.35}}>
                                 <Text onPress={() => Linking.openURL('https://www.tripadvisor.com/AttractionProductReview-g298478-d20354252-Timisoara_The_Communist_Tour-Timisoara_Timis_County_Western_Romania_Transylvania.html')}
                                       style = {{ left: 15, top: 45, color: 'white', textDecorationLine: 'underline', fontStyle: 'italic', fontSize: 28, fontWeight: 'bold' }}
                                 >Communist tour</Text>
                             </View>
-                            <View style={{flex: 0.45}}>
-                                <Text style = {{ left: 15, top: 70, color: '#219653', fontSize: 20, fontWeight: 'bold' }}
+                            <View style={{flex: 0.25}}>
+                                <Text style = {{ left: 20, top: 70, color: '#219653', fontSize: 20, fontWeight: 'bold' }}
                                 >4 hours</Text>
                             </View>
                         </View>
