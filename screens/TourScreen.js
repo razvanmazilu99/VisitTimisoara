@@ -19,7 +19,7 @@ export default class HistoryScreen extends React.Component{
                         <Text style={{color: 'white', fontSize: 26, textAlign: 'center', top: 7, fontWeight: 'bold'}}>Guided Tours</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={ () => this.props.navigation.navigate('History') } style={ [styles.loginButton, {top: 70}]}>
+                    <TouchableOpacity onPress={ () => this.props.navigation.navigate('History') } style={ [styles.loginButton, {top: 50}]}>
                         <Text style={{color: 'white', fontSize: 26, textAlign: 'center', top: 7, fontWeight: 'bold'}}>Create your tour</Text>
                     </TouchableOpacity>
                 </View>
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         width: 267,
         height: 51,
         borderRadius: 60,
-        top: 50,
+        top: 36,
         alignSelf: 'center'
     },
 
