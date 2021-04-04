@@ -14,18 +14,28 @@ export default class MapScreen extends React.Component{
                 </View>
                 <View style={{flex: 0.15}}>
                     <View style={{flex: 0.5, flexDirection: 'row'}}>
-                        <TouchableHighlight style={{ left: 10, top: 17, backgroundColor: '#D9C93D', borderRadius: 13, width: 26, height: 26}} />
-                        <Text style={{fontSize: 16, top: 20, left: 20, color: 'white', fontWeight: 'bold'}}>Churches</Text>
-                        <TouchableHighlight style={{ left: 40, top: 17, backgroundColor: '#36A555', borderRadius: 13, width: 26, height: 26}} />
-                        <Text style={{fontSize: 16, top: 20, left: 50, color: 'white', fontWeight: 'bold'}}>Parks</Text> 
-                        <TouchableHighlight style={{ left: 80, top: 17, backgroundColor: '#43A896', borderRadius: 13, width: 26, height: 26}} />
-                        <Text style={{fontSize: 16, top: 20, left: 90, color: 'white', fontWeight: 'bold'}}>Museums</Text> 
+                        <View style={{flex:0.33}}>
+                            <TouchableHighlight style={{ left: 10, top: 17, backgroundColor: '#D9C93D', borderRadius: 13, width: 26, height: 26}} />
+                            <Text style={{fontSize: 16, top: -7, left: 45, color: 'white', fontWeight: 'bold'}}>Churches</Text>
+                        </View>
+                        <View style={{flex:0.33}}>
+                            <TouchableHighlight style={{ left: 20, top: 17, backgroundColor: '#36A555', borderRadius: 13, width: 26, height: 26}} />
+                            <Text style={{fontSize: 16, top: -7, left: 55, color: 'white', fontWeight: 'bold'}}>Parks</Text> 
+                        </View>
+                        <View style={{flex:0.33}}>
+                            <TouchableHighlight style={{ top: 17, backgroundColor: '#43A896', borderRadius: 13, width: 26, height: 26}} />
+                            <Text style={{fontSize: 16, top: -7, left: 35, color: 'white', fontWeight: 'bold'}}>Museums</Text> 
+                        </View>
                     </View>
                     <View style={{flex: 0.5, flexDirection: 'row'}}>
-                        <TouchableHighlight style={{ left: 10, top: 17, backgroundColor: '#9C552E', borderRadius: 13, width: 26, height: 26}} />
-                        <Text style={{fontSize: 16, top: 20, left: 20, color: 'white', fontWeight: 'bold'}}>Historical buildings</Text> 
-                        <TouchableHighlight style={{ left: 55, top: 17, backgroundColor: '#BE51A6', borderRadius: 13, width: 26, height: 26}} />
-                        <Text style={{fontSize: 16, top: 20, left: 65, color: 'white', fontWeight: 'bold'}}>Shopping</Text> 
+                        <View style={{flex:0.45}}>
+                            <TouchableHighlight style={{ left: 10, top: 17, backgroundColor: '#9C552E', borderRadius: 13, width: 26, height: 26}} />
+                            <Text style={{fontSize: 16, top: -7, left: 45, color: 'white', fontWeight: 'bold'}}>Historical buildings</Text> 
+                        </View>
+                        <View style={{flex:0.33}}>
+                            <TouchableHighlight style={{ left: 55, top: 17, backgroundColor: '#BE51A6', borderRadius: 13, width: 26, height: 26}} />
+                            <Text style={{fontSize: 16, top: -7, left: 90, color: 'white', fontWeight: 'bold'}}>Shopping</Text> 
+                        </View>
                     </View>
                     
                     
