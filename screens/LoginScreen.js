@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, StatusBar } from "react-native";
 import React from 'react';
-import * as firebase from 'firebase';
+import firebase from '../ApiKeys';
 
 export default class LoginScreen extends React.Component{
     

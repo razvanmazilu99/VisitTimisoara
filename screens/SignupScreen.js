@@ -1,5 +1,5 @@
 import React from 'react';
-import * as firebase from 'firebase';
+import firebase from '../ApiKeys';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, StatusBar } from 'react-native';
 
 export default class SignupScreen extends React.Component{

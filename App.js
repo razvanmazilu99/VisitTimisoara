@@ -1,7 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, Image, View, Button, TouchableOpacity } from 'react-native';
-import * as firebase from 'firebase';
-import ApiKeys from './ApiKeys';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import WelcomeScreen from './screens/WelcomeScreen';
@@ -16,13 +14,13 @@ import GuidedToursScreen from './screens/GuidedToursScreen';
 const Stack = createStackNavigator();
 export default class App extends React.Component{
   
-  constructor(props) {
+  /*constructor(props) {
     super(props);
     this.state = {
       isLoadingComplete: false,
     };
     if (!firebase.apps.length) { firebase.initializeApp(ApiKeys.FirebaseConfig); }
-  }
+  }*/
 
   render(){
 
