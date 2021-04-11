@@ -9,11 +9,9 @@ export default class AttractionSection extends React.Component{
                 <View style={{ position: 'absolute', borderRadius: 15, backgroundColor: '#088761', left: -10, bottom: -30 }}>
                     <Text style={{ color: "white", padding: 5, fontSize: 30}}>{this.props.detail.name}</Text>
                 </View>
-                
             </View>
         )
     }
-
 }
 
 const styles = StyleSheet.create({
