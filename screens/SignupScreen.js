@@ -21,7 +21,19 @@ export default class SignupScreen extends React.Component{
                 return;
             }
 
-            firebase.auth().createUserWithEmailAndPassword(email,password).then(user => this.props.navigation.navigate('Login'));
+            firebase.auth().createUserWithEmailAndPassword(email,password).then(() => {
+                var user = firebase.auth().currentUser;
+                user.updateProfile({
+                    displayName: username
+                }).then(() => {
+                    //console.log(user.displayName);
+                    //console.log(username);
+                    this.props.navigation.navigate('Login');
+                }).catch((error) => {
+                    console.log(error.toString());
+                })
+    
+            });
 
         }catch(error){
             console.log(error.toString());
@@ -33,11 +45,11 @@ export default class SignupScreen extends React.Component{
             <View style={styles.container}>
                 <StatusBar style="auto" barStyle="light-content" />
                 <Text style={styles.registerText}>Create account</Text>
-                {/*<TextInput placeholder="Username" onChangeText={(username) => this.setState({username})} style={styles.textInput}></TextInput>*/}
+                <TextInput placeholder="Username" onChangeText={(username) => this.setState({username})} style={styles.textInput}></TextInput>
                 <TextInput placeholder="Email" onChangeText={(email) => this.setState({email})} style={[styles.textInput, {top: 150}]}></TextInput>
                 <TextInput placeholder="Password" onChangeText={(password) => this.setState({password})} secureTextEntry={true} style={[styles.textInput, {top: 170}]}></TextInput>
 
-                <TouchableOpacity onPress={() => this.signUpUser(this.state.email, this.state.password)} style={styles.signupButton}>
+                <TouchableOpacity onPress={() => this.signUpUser(this.state.email, this.state.password, this.state.username)} style={styles.signupButton}>
                     <Text style={{color: 'white', fontSize: 26, textAlign: 'center', top: 12}}>Sign up</Text>
                 </TouchableOpacity>
 

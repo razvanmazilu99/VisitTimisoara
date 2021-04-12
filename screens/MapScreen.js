@@ -1,6 +1,6 @@
 import React from 'react';
 import MapView, { Callout, Marker } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
 export default class MapScreen extends React.Component{
@@ -9,7 +9,9 @@ export default class MapScreen extends React.Component{
         return(
             <View style={styles.container}>
                 <View style={{flex: 0.10, flexDirection: 'row',  top: 17, height: 80}}>
-                    <Image style = {{ height: 30, width: 30, margin: 10, marginTop: 20 }} source = {require("../assets/user1.png")}/>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Profile')} style={{height: 30, width: 30, margin: 10, marginTop: 20}}>
+                        <Image style = {{ height: 30, width: 30 }} source = {require("../assets/user1.png")}/>
+                    </TouchableOpacity>
                     <Text style={{color: 'white', fontSize: 30, top: 10, margin: 7, fontWeight: 'bold' }}>Map</Text>
                 </View>
                 <View style={{flex: 0.15}}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, ScrollView, StatusBar } from 'react-native';
+import { Text, View, Image, ScrollView, StatusBar, TouchableOpacity } from 'react-native';
 
 export default class HistoryScreen extends React.Component{
     render(){
@@ -8,7 +8,9 @@ export default class HistoryScreen extends React.Component{
             <View style={{flex: 1, backgroundColor: '#1A1B29'}}>
                 <StatusBar style="auto" barStyle="light-content" />
                 <View style={{flexDirection: 'row',  top: 17, height: 80}}>
-                    <Image style = {{ height: 30, width: 30, margin: 10, marginTop: 20 }} source = {require("../assets/user1.png")}/>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Profile')} style={{height: 30, width: 30, margin: 10, marginTop: 20}}>
+                        <Image style = {{ height: 30, width: 30 }} source = {require("../assets/user1.png")}/>
+                    </TouchableOpacity>
                     <Text style={{color: 'white', fontSize: 30, top: 10, margin: 7, fontWeight: 'bold' }}>History</Text>
                 </View>
                 <View>
