@@ -6,7 +6,7 @@ import WelcomeScreen from './WelcomeScreen';
 import LoginScreen from './LoginScreen';
 import ExploreScreen from './ExploreScreen';
 import MapScreen from './MapScreen';
-import SignupScreen from './SignupScreen';
+import SavedScreen from './SavedScreen';
 import HistoryScreen from './HistoryScreen';
 import TourScreen from './TourScreen';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -61,8 +61,8 @@ export default class NavBar extends React.Component{
                         }} 
                     />
                     <Tab.Screen 
-                        name='Login' 
-                        component={LoginScreen}
+                        name='Saved' 
+                        component={SavedScreen}
                         options={{
                             tabBarLabel: 'Saved',
                             tabBarIcon: ({focused, color}) => (

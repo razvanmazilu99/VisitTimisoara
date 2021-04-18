@@ -4,6 +4,7 @@ import { StyleSheet, Text, Image, View, Button, TouchableOpacity } from 'react-n
 
 export default function WelcomeScreen({ navigation }){
     return (
+
         <View style={styles.container}>
           <StatusBar style="auto" barStyle='light-content'/>
           <Text style = {styles.textStyle}>
