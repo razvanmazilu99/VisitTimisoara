@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, TouchableOpacity, Image, Dimensions } from 'rea
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import WelcomeScreen from './WelcomeScreen';
-import LoginScreen from './LoginScreen';
+import TemplateScreen from './TemplateScreen';
 import ExploreScreen from './ExploreScreen';
 import MapScreen from './MapScreen';
 import SavedScreen from './SavedScreen';
@@ -61,8 +61,8 @@ export default class NavBar extends React.Component{
                         }} 
                     />
                     <Tab.Screen 
-                        name='Saved' 
-                        component={SavedScreen}
+                        name='Template' 
+                        component={TemplateScreen}
                         options={{
                             tabBarLabel: 'Saved',
                             tabBarIcon: ({focused, color}) => (

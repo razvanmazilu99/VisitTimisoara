@@ -9,6 +9,7 @@ import MainScreen from './screens/MainScreen';
 //import NavBar from './screens/NavBar';
 import MapScreen from './screens/MapScreen';
 import TourScreen from './screens/TourScreen';
+import TemplateScreen from './screens/TemplateScreen';
 import GuidedToursScreen from './screens/GuidedToursScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SavedScreen from './screens/SavedScreen';
@@ -40,6 +41,7 @@ export default class App extends React.Component{
           <Stack.Screen name="Map" component={MapScreen} />
           <Stack.Screen name="Saved" component={SavedScreen} />
           <Stack.Screen name="Tour" component={TourScreen} />
+          <Stack.Screen name="Template" component={TemplateScreen} />
           <Stack.Screen name="GuidedTours" component={GuidedToursScreen} />
           <Stack.Screen name="Profile" component={ProfileScreen} />
           
