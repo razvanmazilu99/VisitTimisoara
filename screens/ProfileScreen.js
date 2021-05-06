@@ -15,22 +15,25 @@ export default class ProfileScreen extends React.Component{
     render(){
         var user = firebase.auth().currentUser;
         return(
-            <View style={{flex: 1, backgroundColor: 'pink'}}>
-                <View style={{alignContent: 'center', flex: 0.38, height: 280, elevation: 20, backgroundColor: '#1A1B29', borderBottomLeftRadius: 25, borderBottomRightRadius: 25}}>
-                    <Image 
-                        style={{alignSelf: 'center', top: 35, width: 130, height: 130}}
-                        source = {require("../assets/profile.png")} />
-                    <Text style={{alignSelf: 'center', top: 70, fontSize: 24}}>{user.displayName}</Text>
-                    <Text style={{alignSelf: 'center', top: 90, fontSize: 24}}>{user.email}</Text>
-                </View>
-            	<View style={{flex: 0.62}}>
-                    <TouchableOpacity onPress={() => this.logout()} style={styles.logoutButton}>
-                        <Image source = {require("../assets/previous.png")} style={{width: 30, height: 30, top: 16, left: 46}}/>
-                        <Text style={{color: 'white', fontSize: 26, textAlign: 'right', marginEnd: 55, top: -18}}>Logout</Text>
-                    </TouchableOpacity>
+            <View style={{flex: 1, backgroundColor: '#65687D'}}>
+                <View style={{alignContent: 'center', flex: 0.48, height: 280, elevation: 20, backgroundColor: '#1A1B29', borderBottomLeftRadius: 25, borderBottomRightRadius: 25}}>
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.backButton}>
-                        <Image source = {require("../assets/previous.png")} style={{width: 45, height: 45, top: 8, alignSelf: 'center'}}/>
+                        <Image source = {require("../assets/back.png")} style={{width: 45, height: 45, alignSelf: 'center'}}/>
                     </TouchableOpacity>
+                    <Image 
+                        style={{alignSelf: 'center', top: 40, width: 130, height: 130}}
+                        source = {require("../assets/profile.png")} />
+                    <Text style={{alignSelf: 'center', top: 60, fontSize: 24, color: 'white', fontWeight: 'bold', fontStyle: 'italic'}}>{user.displayName}</Text>
+                    <Text style={{alignSelf: 'center', top: 80, fontSize: 24, color: 'white'}}>{user.email}</Text>
+                </View>
+            	<View style={{flex: 0.52}}>
+                    <TouchableOpacity onPress={() => this.logout()} style={styles.logoutButton}>
+                        <Image source = {require("../assets/log-out.png")} style={{width: 45, height: 45, left: 6, top: 2}}/>
+                        <Text style={{color: 'white', fontSize: 26, textAlign: 'right', marginEnd: 5, top: -40}}>Logout</Text>
+                    </TouchableOpacity>
+                    <View>
+                        <Image  style = {{  width: 396, height: 410, top: -60 }} source = { require('../assets/IT1.jpg') } />
+                    </View>
                 </View>
                 
             </View>
@@ -39,20 +42,20 @@ export default class ProfileScreen extends React.Component{
 }
 const styles = StyleSheet.create({
     logoutButton: {
-        backgroundColor: "tomato",
-        width: 230,
-        height: 61,
-        borderRadius: 20,
-        top: 350,
-        alignSelf: 'flex-end',
-        right: 15
+        backgroundColor: 'gray',
+        opacity: 0.7,
+        width: 145,
+        height: 48,
+        borderRadius: 10,
+        top: 330,
+        alignSelf:  'center',
+        zIndex: 1
     },
     backButton: {
-        backgroundColor: "gray",
-        width: 100,
-        height: 61,
+        width: 45,
+        height: 45,
+        top: 28,
         borderRadius: 20,
-        top: 290,
         alignSelf: 'flex-start',
         left: 15
     }
