@@ -10,7 +10,7 @@ const attractionsArray = [];
 db.collection("attractions").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         //console.log(`${doc.id} => ${doc.data().name}, ${doc.data().image}`);
-        let at = new Attraction(doc.id, doc.data().name, doc.data().description, doc.data().image, 12, doc.data().type, doc.data().zone, doc.data().rating);
+        let at = new Attraction(doc.id, doc.data().name, doc.data().description, doc.data().image, 12, 13, doc.data().type, doc.data().zone, doc.data().rating);
         attractionsArray.push(at);
     });
 });
