@@ -49,7 +49,7 @@ export default class ExploreScreen extends React.Component{
 
                 </View>
                 <ScrollView>
-                    <AttractionList/>
+                    <AttractionList navigation={this.props.navigation}/>
                 </ScrollView>
             </View>
             

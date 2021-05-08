@@ -1,4 +1,5 @@
 import React from "react";
+import { DevSettings } from "react-native";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import firebase from '../ApiKeys';
 
@@ -6,6 +7,7 @@ export default class ProfileScreen extends React.Component{
     
     logout = () => {
         firebase.auth().signOut().then(() => {
+            DevSettings.reload();
             this.props.navigation.navigate('WelcomeScreen');
         }).catch((error) => {
             console.log(error);
