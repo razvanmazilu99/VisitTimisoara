@@ -28,8 +28,14 @@ export default class LoginScreen extends React.Component{
         })
             .catch( (error) => {
                 var errorCode = error.code;
-                if(errorCode == 'auth/wrong-password') 
-                    alert("Wrong Password");   
+                console.log(error.code);
+                if(errorCode == 'auth/invalid-email')
+                    alert("Wrong Completeaza ceva");
+                else if(errorCode == 'auth/user-not-found') 
+                    alert("Wrong e");
+                else if(errorCode == 'auth/wrong-password') 
+                    alert("Wrong Password"); 
+ 
             });
 
         

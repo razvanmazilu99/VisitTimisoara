@@ -1,12 +1,11 @@
 import React from 'react';
 import MapView, { Callout, Marker } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 import Attraction from '../attractions/Attraction';
 import firebase from '../ApiKeys';
 
 var db = firebase.firestore();
-
 const attractionsArray = [];
 
 db.collection("attractions").get().then((querySnapshot) => {
@@ -20,20 +19,30 @@ db.collection("attractions").get().then((querySnapshot) => {
 
 export default class MapScreen extends React.Component{
     
-    state={
-        markers: attractionsArray,
-    };
-
+    constructor(props) {
+        super(props);
+        this.state={
+            markers: attractionsArray,
+        };
+    }
+    
     printMap=() => {
+        let colors = new Map();
+        colors.set("Churches", "#D9C93D");
+        colors.set("Parks", "#36A555");
+        colors.set("Museums", "#43A896");
+        colors.set("Historical buildings", "tomato");
+        colors.set("Shopping", "#BE51A6");
         return this.state.markers.map( (item, index) => {
             //return <Marker key={index} coordinate={{ latitude: parseFloat(item.latitude), longitude: parseFloat(item.longitude)}} title={item.name}/>
-            return <Marker pinColor={'green'} coordinate={{ latitude: parseFloat(item.latitude), longitude: parseFloat(item.longitude)}}>
+            for (let [key, value] of colors) { if(key == item.type) { var c = value }}
+            return <Marker key={index} pinColor={c} coordinate={{ latitude: parseFloat(item.latitude), longitude: parseFloat(item.longitude)}}>
                         <Callout>
                             <View>
                                 <Text style={{ alignSelf: 'center', height: 90, position: "relative", bottom: 15 }}>
                                     <Image source = {{uri: item.image}} resizeMode="cover" style={{width: 80, height: 80}} />
                                 </Text>
-                                <Text>Piata Unirii</Text>
+                                <Text>{item.name}</Text>
                             </View>
                         </Callout>
                     </Marker>
@@ -44,7 +53,10 @@ export default class MapScreen extends React.Component{
         return (
             <View style={styles.container}>
                 <View style={{flex: 0.10, flexDirection: 'row',  top: 17, height: 80}}>
-                    <Image style = {{ height: 30, width: 30, margin: 10, marginTop: 20 }} source = {require("../assets/user1.png")}/>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Profile')} style={{height: 30, width: 30, margin: 10, marginTop: 20}}>
+                        <Image style = {{ height: 30, width: 30}} source = {require("../assets/user1.png")}/>
+                    </TouchableOpacity>
+
                     <Text style={{color: 'white', fontSize: 30, top: 10, margin: 7, fontWeight: 'bold' }}>Map</Text>
                 </View>
                 <View style={{flex: 0.15}}>
@@ -64,7 +76,7 @@ export default class MapScreen extends React.Component{
                     </View>
                     <View style={{flex: 0.5, flexDirection: 'row'}}>
                         <View style={{flex:0.45}}>
-                            <TouchableHighlight style={{ left: 10, top: 17, backgroundColor: '#9C552E', borderRadius: 13, width: 26, height: 26}} />
+                            <TouchableHighlight style={{ left: 10, top: 17, backgroundColor: 'tomato', borderRadius: 13, width: 26, height: 26}} />
                             <Text style={{fontSize: 16, top: -7, left: 45, color: 'white', fontWeight: 'bold'}}>Historical buildings</Text> 
                         </View>
                         <View style={{flex:0.33}}>
