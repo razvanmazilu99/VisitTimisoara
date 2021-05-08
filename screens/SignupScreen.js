@@ -16,24 +16,33 @@ export default class SignupScreen extends React.Component{
 
     signUpUser = (email, password, username) => {
        try{
-            if(this.state.password.length<6){
-                alert("Please enter at least 6 characters")
-                return;
+            if(this.state.username.length == 0) {
+                alert("Write your username!");
             }
-
-            firebase.auth().createUserWithEmailAndPassword(email,password).then(() => {
-                var user = firebase.auth().currentUser;
-                user.updateProfile({
-                    displayName: username
-                }).then(() => {
-                    //console.log(user.displayName);
-                    //console.log(username);
-                    this.props.navigation.navigate('Login');
-                }).catch((error) => {
-                    console.log(error.toString());
-                })
-    
-            });
+            else if(this.state.email.length == 0) {
+                alert("Write your email!");
+            } else if(password == "") {
+                alert("Write your password!");
+            } else if(this.state.password.length < 6){
+                alert("Password must have at least 6 characters!")
+            } else {
+                firebase.auth().createUserWithEmailAndPassword(email,password).then(() => {
+                    var user = firebase.auth().currentUser;
+                    user.updateProfile({
+                        displayName: username
+                    }).then(() => {
+                        this.props.navigation.navigate('Login');
+                    })
+                }).catch( (error) => {
+                        var errorCode = error.code;
+                        if(errorCode == 'auth/invalid-email')
+                            alert("Invalid Email!");
+                        else if(errorCode == 'auth/email-already-in-use') 
+                            alert("Email already exists!");
+                        else if(errorCode == 'auth/wrong-password') 
+                            alert("Wrong Password!"); 
+                });
+            }
 
         }catch(error){
             console.log(error.toString());
