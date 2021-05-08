@@ -21,25 +21,26 @@ export default class LoginScreen extends React.Component{
                 console.log(user);
                 console.log(user.email)
             })*/
-             
-        firebase.auth().signInWithEmailAndPassword(email,password).then( () => {
-            //console.log("Succes");
-            this.props.navigation.navigate('Main');
-        })
-            .catch( (error) => {
-                var errorCode = error.code;
-                console.log(error.code);
-                if(errorCode == 'auth/invalid-email')
-                    alert("Wrong Completeaza ceva");
-                else if(errorCode == 'auth/user-not-found') 
-                    alert("Wrong e");
-                else if(errorCode == 'auth/wrong-password') 
-                    alert("Wrong Password"); 
- 
-            });
-
-        
-                      
+            
+        if(email == "") {
+            alert("Write your email!");
+        } else if(password == "") {
+            alert("Write your password!");
+        } else {
+            firebase.auth().signInWithEmailAndPassword(email,password).then( () => {
+                //console.log("Succes");
+                this.props.navigation.navigate('Main');
+            })
+                .catch( (error) => {
+                    var errorCode = error.code;
+                    if(errorCode == 'auth/invalid-email')
+                        alert("Invalid Email!");
+                    else if(errorCode == 'auth/user-not-found') 
+                        alert("User not found!");
+                    else if(errorCode == 'auth/wrong-password') 
+                        alert("Wrong Password!"); 
+                });
+        }
           //catch(error){
             //console.log(error.toString())
             //alert("Error:",error)
