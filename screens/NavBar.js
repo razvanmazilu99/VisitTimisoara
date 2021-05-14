@@ -61,8 +61,8 @@ export default class NavBar extends React.Component{
                         }} 
                     />
                     <Tab.Screen 
-                        name='Template' 
-                        component={TemplateScreen}
+                        name='Save' 
+                        component={SavedScreen}
                         options={{
                             tabBarLabel: 'Saved',
                             tabBarIcon: ({focused, color}) => (
