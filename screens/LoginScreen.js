@@ -1,10 +1,8 @@
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, StatusBar, Alert } from "react-native";
 import React from 'react';
 import firebase from '../ApiKeys';
-import * as Facebook from 'expo-facebook'
-
-global.facebookLogin = facebookLogin;
-global.facebookLogin = false;
+import * as Facebook from 'expo-facebook';
+import '../global.js';
 
 export default class LoginScreen extends React.Component{
     
@@ -18,13 +16,13 @@ export default class LoginScreen extends React.Component{
         })
     }
 
-    componentDidMount(){
-        firebase.auth().onAuthStateChanged((user) => {
-            if(user != null){
-                console.log(user)
-            }
-        })
-    }
+    // componentDidMount(){
+    //     firebase.auth().onAuthStateChanged((user) => {
+    //         if(user != null){
+    //             console.log(user)
+    //         }
+    //     })
+    // }
 
     async logIn() {
         try {
@@ -44,7 +42,7 @@ export default class LoginScreen extends React.Component{
             // Get the user's name using Facebook's Graph API
             const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
             Alert.alert('Logged in!', `Hi ${(await response.json()).name}!`);
-            global.facebookLogin = true;
+            facebookLogin = 'true';
             this.props.navigation.navigate('Main');
           } else {
             // type === 'cancel'
@@ -93,17 +91,17 @@ export default class LoginScreen extends React.Component{
         
     }
 
-    async loginWithFacebook(){
-        const {type, token} = await Facebook.logInWithReadPermissionsAsync('943398076427259', { permisions: ['public_profile'] })
+    // async loginWithFacebook(){
+    //     const {type, token} = await Facebook.logInWithReadPermissionsAsync('943398076427259', { permisions: ['public_profile'] })
 
-        if(type == 'success'){
-            const credential = firebase.auth.FacebookAuthProvider.credential(token)
+    //     if(type == 'success'){
+    //         const credential = firebase.auth.FacebookAuthProvider.credential(token)
 
-            firebase.auth().signInWithCredential(credential).catch((error) => {
-                console.log(error)
-            })
-        }
-    }
+    //         firebase.auth().signInWithCredential(credential).catch((error) => {
+    //             console.log(error)
+    //         })
+    //     }
+    // }
 
     render(){
         return(

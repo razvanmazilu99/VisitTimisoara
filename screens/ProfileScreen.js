@@ -2,6 +2,7 @@ import React from "react";
 import { DevSettings } from "react-native";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import firebase from '../ApiKeys';
+import '../global.js';
 
 export default class ProfileScreen extends React.Component{
     
@@ -15,7 +16,15 @@ export default class ProfileScreen extends React.Component{
     }
 
     render(){
-        var user = firebase.auth().currentUser;
+        if(facebookLogin == 'false'){
+            var user = firebase.auth().currentUser;
+            var name = user.displayName;
+            var email = user.email;
+        }else{
+            var name = "Facebook User";
+            var email = "";
+        }
+        
         return(
             <View style={{flex: 1, backgroundColor: '#65687D'}}>
                 <View style={{alignContent: 'center', flex: 0.48, height: 280, elevation: 20, backgroundColor: '#1A1B29', borderBottomLeftRadius: 25, borderBottomRightRadius: 25}}>
@@ -25,8 +34,8 @@ export default class ProfileScreen extends React.Component{
                     <Image 
                         style={{alignSelf: 'center', top: 40, width: 130, height: 130}}
                         source = {require("../assets/profile.png")} />
-                    <Text style={{alignSelf: 'center', top: 60, fontSize: 24, color: 'white', fontWeight: 'bold', fontStyle: 'italic'}}>{user.displayName}</Text>
-                    <Text style={{alignSelf: 'center', top: 80, fontSize: 24, color: 'white'}}>{user.email}</Text>
+                    <Text style={{alignSelf: 'center', top: 60, fontSize: 24, color: 'white', fontWeight: 'bold', fontStyle: 'italic'}}>{name}</Text>
+                    <Text style={{alignSelf: 'center', top: 80, fontSize: 24, color: 'white'}}>{email}</Text>
                 </View>
             	<View style={{flex: 0.52}}>
                     <TouchableOpacity onPress={() => this.logout()} style={styles.logoutButton}>
