@@ -1,8 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TouchableHighlight, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Pressable, TouchableHighlight, ScrollView } from 'react-native';
+import { useState } from "react";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Icon } from 'react-native-elements';
 import { Rating } from "react-native-elements";
 import firebase from '../ApiKeys';
+
+const Button = () => {
+
+    const [liked, setLiked] = useState(false);
+
+    return (
+        <TouchableOpacity onPress={() => setLiked((isLiked) => !isLiked)} style={styles.heart}>
+            <MaterialCommunityIcons
+                name={liked ? "heart" : "heart"}
+                size={37}
+                color={liked ? "tomato" : "white"}
+            />
+        </TouchableOpacity>
+    );
+};
 
 export default class TemplateScreen extends React.Component{
     
@@ -41,9 +58,10 @@ export default class TemplateScreen extends React.Component{
                     <Text style={{ fontSize: 20, color: 'white', bottom: 1 }}>Home</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => this.amanda()} style={styles.heart}>
+               {/* <TouchableOpacity onPress={() => this.amanda()} style={styles.heart}>
                     <Icon type='ionicon' name="heart" size={ 40 } iconStyle={styles.icon}/>
-                </TouchableOpacity>
+        </TouchableOpacity>*/}
+                <Button/>
 
                 <ScrollView style={{ flex: 1, top: 280, marginRight: 25, marginLeft: 15 }}>
                     <Text style={{ textAlign: 'justify' , fontSize: 18, color: 'beige', top: 20, paddingLeft: 10 }}>{ this.props.route.params.description }</Text>
@@ -121,10 +139,8 @@ const styles = StyleSheet.create({
     },
 
     heart: {
-        top: 230,
-        left: 0,
-        width: 95,
-        height: 35,
+        top: 220,
+        left: 25,
     },
 
     homeButton: {
