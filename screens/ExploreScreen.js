@@ -3,8 +3,8 @@ import { Text, View, Image, Pressable, ScrollView, Button, TouchableOpacity } fr
 import Attraction from '../attractions/Attraction';
 import AttractionList from './AttractionList';
 import AttractionSection from './AttractionSection';
-
-
+import firebase from '../ApiKeys';
+import '../global.js';
 
 //var images = ["../assets/explore.png", "../assets/heart.png"];
 /*var images = ["https://images.app.goo.gl/LCFsVHiUWCaVWD8y8"];
@@ -38,6 +38,7 @@ function display(){
 export default class ExploreScreen extends React.Component{
 
     render(){  
+
         return(
             <View style={{flex: 1, backgroundColor: '#1A1B29'}}>
                 <View style={{flexDirection: 'row',  top: 17, height: 80}}>
