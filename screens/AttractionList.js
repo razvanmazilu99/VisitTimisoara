@@ -3,6 +3,7 @@ import { ScrollView, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import AttractionSection from './AttractionSection';
 import Attraction from '../attractions/Attraction';
 import firebase from '../ApiKeys';
+import '../global';
 
 var db = firebase.firestore();
 
@@ -20,8 +21,9 @@ export default class AttractionList extends React.Component{
     state={
         attractionsArray: attractionsArray
     }
-
+    
     getPhotos=() =>{
+
         return this.state.attractionsArray.map(item => {
             return (
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Template', {id: item.id, name: item.name, description: item.description, rating: item.rating, image: item.image, image1: item.image1, image2: item.image2})} key={item.id}>              
@@ -32,6 +34,12 @@ export default class AttractionList extends React.Component{
     } 
 
     render(){
+
+        const currentUser = firebase.auth().currentUser;
+        const uid = currentUser.uid;
+        const userData = { username: currentUser.displayName };
+        firebase.firestore().doc(`/users/${uid}`).set(userData, {merge: true}).then(() => {console.log("Succes");}).catch((error) => {console.log(error);});
+
         return(
             <ScrollView style={{ paddingBottom: 20, backgroundColor: '#1A1B29' }}>
                 {this.getPhotos()}

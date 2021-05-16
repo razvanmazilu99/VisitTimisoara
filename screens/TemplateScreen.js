@@ -11,7 +11,7 @@ const Button = () => {
     const [liked, setLiked] = useState(false);
 
     return (
-        <TouchableOpacity onPress={() => setLiked((isLiked) => !isLiked)} style={styles.heart}>
+        <TouchableOpacity onPress={() => {setLiked((isLiked) => !isLiked); TemplateScreen.addToFavorites();}} style={styles.heart}>
             <MaterialCommunityIcons
                 name={liked ? "heart" : "heart"}
                 size={37}
@@ -36,7 +36,33 @@ export default class TemplateScreen extends React.Component{
    //     console.log(this.state.pushColor);
    // }
 
+    static addToFavorites() {
+
+        const currentUserId = firebase.auth().currentUser.uid;
+        const userDoc = firebase.firestore().collection('users').doc(currentUserId);
+
+        console.log('Adding ' + attractionId + ' to fav');
+
+        userDoc.update({
+            favorites: firebase.firestore.FieldValue.arrayUnion(attractionId)
+        })
+    }
+
+    removeFromFavorites() {
+
+        const currentUserId = firebase.auth().currentUser.uid;
+        const userDoc = firebase.firestore().collection('users').doc(currentUserId);
+
+        console.log('Remove ' + attractionId + ' from fav');
+
+        userDoc.update({
+            favorites: firebase.firestore.FieldValue.arrayRemove(attractionId)
+        })
+    }
+
     render() {
+
+        global.attractionId = this.props.route.params.id
 
         ratingCompleted = (r) => {
             //console.log(this.props.route.params.rating)
@@ -63,7 +89,15 @@ export default class TemplateScreen extends React.Component{
         </TouchableOpacity>*/}
                 <Button/>
 
-                <ScrollView style={{ flex: 1, top: 280, marginRight: 25, marginLeft: 15 }}>
+                <TouchableOpacity onPress={() => {this.removeFromFavorites();}} style={styles.close}>
+                    <MaterialCommunityIcons
+                        name={"close"}
+                        size={28}
+                        color={"white"}
+                    />
+                </TouchableOpacity>
+
+                <ScrollView style={{ flex: 1, top: 260, marginRight: 25, marginLeft: 15 }}>
                     <Text style={{ textAlign: 'justify' , fontSize: 18, color: 'beige', top: 20, paddingLeft: 10 }}>{ this.props.route.params.description }</Text>
                     <Image style={{ width: 300, height: 200, top: 30, marginLeft: 60, borderRadius: 100 }} source={{ uri: this.props.route.params.image1 }}/>
                     <Image style={{ width: 300, height: 200, top: 70, marginLeft: -10, borderRadius: 100 }} source={{ uri: this.props.route.params.image2 }}/>
@@ -141,6 +175,11 @@ const styles = StyleSheet.create({
     heart: {
         top: 220,
         left: 25,
+    },
+
+    close: {
+        top: 225,
+        left: 30,
     },
 
     homeButton: {
