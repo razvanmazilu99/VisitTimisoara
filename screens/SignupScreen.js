@@ -10,7 +10,8 @@ export default class SignupScreen extends React.Component{
         this.state = ({
             username: '',
             email: '',
-            password: ''
+            password: '',
+            signup: ''
         })
     }
 
@@ -26,6 +27,7 @@ export default class SignupScreen extends React.Component{
             } else if(this.state.password.length < 6){
                 alert("Password must have at least 6 characters!")
             } else {
+                this.state.signup = 'success';
                 firebase.auth().createUserWithEmailAndPassword(email,password).then(() => {
                     var user = firebase.auth().currentUser;
                     user.updateProfile({
