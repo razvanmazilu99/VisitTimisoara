@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#1A1B29",
+      "flex": 1,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 48,
+        "top": 58,
+      }
+    }
+  >
+    Log in
+  </Text>
+  <View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#3552B8",
+          "borderRadius": 20,
+          "height": 46,
+          "opacity": 1,
+          "top": 90,
+          "width": 152,
+        }
+      }
+    >
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 36,
+              "fontWeight": "bold",
+              "left": 20,
+            }
+          }
+        >
+          f
+        </Text>
+      </View>
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "left": 50,
+              "top": -35,
+            }
+          }
+        >
+          Facebook
+        </Text>
+      </View>
+    </View>
+  </View>
+  <Text
+    style={
+      Object {
+        "alignSelf": "center",
+        "color": "white",
+        "fontSize": 18,
+        "top": 110,
+      }
+    }
+  >
+    or log in with email
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    placeholder="Email"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderRadius": 20,
+        "fontSize": 26,
+        "height": 61,
+        "paddingLeft": 25,
+        "top": 130,
+        "width": 337,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    placeholder="Password"
+    rejectResponderTermination={true}
+    secureTextEntry={true}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 20,
+          "fontSize": 26,
+          "height": 61,
+          "paddingLeft": 25,
+          "top": 130,
+          "width": 337,
+        },
+        Object {
+          "top": 150,
+        },
+      ]
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#59B398",
+        "borderRadius": 20,
+        "height": 61,
+        "opacity": 1,
+        "top": 200,
+        "width": 337,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 26,
+          "textAlign": "center",
+          "top": 12,
+        }
+      }
+    >
+      Log in
+    </Text>
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 18,
+        "textAlign": "center",
+        "top": 240,
+      }
+    }
+  >
+    Don't have an account?
+  </Text>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderRadius": 20,
+        "height": 46,
+        "opacity": 1,
+        "top": 260,
+        "width": 257,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "black",
+          "fontSize": 22,
+          "textAlign": "center",
+          "top": 8,
+        }
+      }
+    >
+      Sign up
+    </Text>
+  </View>
+</View>
+`;
